@@ -1,0 +1,209 @@
+[
+    {
+        "id": 1,
+        "modelo": "AM14752",
+        "detalle_modelo": [
+            {
+                "nombre": "Air Max 270",
+                "marca": "Nike",
+                "color": "Blanco"
+            }
+        ],
+        "stock": 10,
+        "precio_venta": 150,
+        "talla": 37,
+        "proveedor": "Mario",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 2,
+        "modelo": "AM11592",
+        "detalle_modelo": [
+            {
+                "nombre": "Air Force 1",
+                "marca": "Nike",
+                "color": "Negro"
+            }
+        ],
+        "stock": 3,
+        "precio_venta": 180,
+        "talla": 38,
+        "proveedor": "Luigi",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 3,
+        "modelo": "AM18852",
+        "detalle_modelo": [
+            {
+                "nombre": "Air Max Excee",
+                "marca": "Nike",
+                "color": "Blanco"
+            }
+        ],
+        "stock": 5,
+        "precio_venta": 250,
+        "talla": 40,
+        "proveedor": "Mario",
+        "almacenes": [
+            "Cercado"
+        ]
+    },
+    {
+        "id": 4,
+        "modelo": "AM14456",
+        "detalle_modelo": [
+            {
+                "nombre": "Air Max 90",
+                "marca": "Nike",
+                "color": "Blanco"
+            }
+        ],
+        "stock": 2,
+        "precio_venta": 200,
+        "talla": 37,
+        "proveedor": "Luigi",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 5,
+        "modelo": "AM12222",
+        "detalle_modelo": [
+            {
+                "nombre": "Revolution 5",
+                "marca": "Nike",
+                "color": "Negro"
+            }
+        ],
+        "stock": 1,
+        "precio_venta": 150,
+        "talla": 37,
+        "proveedor": "Mario",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 6,
+        "modelo": "AM14752",
+        "detalle_modelo": [
+            {
+                "nombre": "NMD R1",
+                "marca": "Adidas",
+                "color": "Blanco"
+            }
+        ],
+        "stock": 6,
+        "precio_venta": 150,
+        "talla": 37,
+        "proveedor": "Luigi",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 7,
+        "modelo": "AM14552",
+        "detalle_modelo": [
+            {
+                "nombre": "Air Jordan 1 MID",
+                "marca": "Nike",
+                "color": "Rojo"
+            }
+        ],
+        "stock": 10,
+        "precio_venta": 150,
+        "talla": 37,
+        "proveedor": "Mario",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 8,
+        "modelo": "BR14752",
+        "detalle_modelo": [
+            {
+                "nombre": "Adrenaline GTS 21",
+                "marca": "Brooks",
+                "color": "Gris"
+            }
+        ],
+        "stock": 10,
+        "precio_venta": 150,
+        "talla": 37,
+        "proveedor": "Luigi",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 9,
+        "modelo": "AM789552",
+        "detalle_modelo": [
+            {
+                "nombre": "Court Vision Low",
+                "marca": "Nike",
+                "color": "Blanco"
+            }
+        ],
+        "stock": 10,
+        "precio_venta": 150,
+        "talla": 37,
+        "proveedor": "Mario",
+        "almacenes": [
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 10,
+        "modelo": "AM14752",
+        "detalle_modelo": [
+            {
+                "nombre": "Air Max 270",
+                "marca": "Nike",
+                "color": "Blanco"
+            }
+        ],
+        "stock": 10,
+        "precio_venta": 150,
+        "talla": 37,
+        "proveedor": "Luigi",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    },
+    {
+        "id": 11,
+        "modelo": "AM89452",
+        "detalle_modelo": [
+            {
+                "nombre": "Air VaporMax Plus",
+                "marca": "Nike",
+                "color": "Negro"
+            }
+        ],
+        "stock": 13,
+        "precio_venta": 150,
+        "talla": 37,
+        "proveedor": "Luigi",
+        "almacenes": [
+            "Cercado",
+            "Miraflores"
+        ]
+    }
+]

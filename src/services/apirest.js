@@ -1,0 +1,1 @@
+export const ApiUrl="https://sgz-si.herokuapp.com/api/";
