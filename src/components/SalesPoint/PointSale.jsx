@@ -2,11 +2,11 @@ import React, {Component} from "react";
 import Layout from '../Layout/Layout'
 import Header from '../Layout/Header'
 //Servicios
+import axios from "axios";
 import {ApiUrl, TokenFixed_of_UserRoot} from "../../services/apirest";
 //Librerias
 import DataTable from 'react-data-table-component';
 import {Modal, Button} from 'react-bootstrap';
-import axios from "axios";
 import {Redirect} from "react-router-dom";
 
 const columns = (openModal, deletePointSale) => [

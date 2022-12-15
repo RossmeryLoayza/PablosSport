@@ -4,8 +4,8 @@ import Header from '../Layout/Header'
 //servicios
 import {ApiUrl, TokenFixed_of_UserRoot} from "../../services/apirest";
 //librerias
-import axios from "axios"
 import {Redirect} from "react-router-dom";
+import axios from "axios"
 
 class CreateSalePoint extends React.Component {
     constructor(props) {
