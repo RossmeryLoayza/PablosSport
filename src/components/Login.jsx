@@ -3,7 +3,6 @@ import {Redirect} from "react-router-dom";
 import "../assetss/css/login.css";
 //servicios
 import {ApiUrl} from "../services/apirest";
-//librerias
 import axios from "axios"
 
 
