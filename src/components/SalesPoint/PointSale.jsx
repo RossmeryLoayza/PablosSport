@@ -9,16 +9,6 @@ import {ApiUrl, TokenFixed_of_UserRoot} from "../../services/apirest";
 import DataTable from 'react-data-table-component';
 import {Modal, Button} from 'react-bootstrap';
 
-{/*<a href="/editar_puesto_venta" className="link-warning">*/
-}
-{/*    <button type="button"*/
-}
-{/*            className="btn btn-primary btn-sm rounded-pill">Editar*/
-}
-{/*    </button>*/
-}
-{/*</a>*/
-}
 
 const columns = (openModal) => [
     {
@@ -56,8 +46,7 @@ class PointSale extends React.Component {
         this.state = {
             data: null,
             show: false,
-            currentName: "ga",
-            edit: false
+            currentName: "",
         };
         this.openModal = this.openModal.bind(this);
     }
@@ -103,7 +92,7 @@ class PointSale extends React.Component {
     }
 
     render() {
-        const {data, show, currentName, edit} = this.state
+        const {data, show, currentName} = this.state
         return (
             <React.Fragment>
                 <Header/>
