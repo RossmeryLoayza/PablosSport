@@ -1,12 +1,12 @@
 import React, {Component} from "react";
-import Layout from '../Layout/Layout'
-import Header from '../Layout/Header'
+import Layout from '../../components/Layout/Layout'
+import Header from '../../components/Layout/Header'
+import axios from "axios";
+import {ApiUrl, TokenFixed_of_UserRoot} from "../../services/apirest";
 //Librerias
 import DataTable from 'react-data-table-component';
 import {Modal, Button} from 'react-bootstrap';
 import {Link} from "react-router-dom";
-import axios from "axios";
-import {ApiUrl, TokenFixed_of_UserRoot} from "../../services/apirest";
 
 const columns = (openModal) => [
     {
@@ -14,12 +14,20 @@ const columns = (openModal) => [
         selector: row => row.id,
     },
     {
-        name: 'Nombre de usuario',
-        selector: row => row.username,
+        name: 'Código del modelo',
+        selector: row => row.code,
     },
     {
-        name: 'Nombres y Apellidos',
-        selector: row => row.full_name,
+        name: 'Nombre del modelo',
+        selector: row => row.name,
+    },
+    {
+        name: 'Marca',
+        selector: row => row.brand,
+    },
+    {
+        name: 'Color',
+        selector: row => row.color,
     },
     {
         name: 'Acciones',
@@ -27,11 +35,11 @@ const columns = (openModal) => [
             return <div className="row gap-2">
                 <a className="link-warning">
                     <Link className="btn btn-primary btn-sm rounded-pill"
-                          to={{pathname: "/editar_vendedor", contact_name: row.contact_name}}>Editar</Link>
+                          to={{pathname: "/modificar_modeloZapatilla", code: row.code}}>Editar</Link>
                 </a>
                 <a className="link-warning">
                     <button type="button" onClick={() => {
-                        openModal(row.username)
+                        openModal(row.code, row.name)
                     }}
                             className="btn btn-danger btn-sm rounded-pill">Eliminar
                     </button>
@@ -43,19 +51,33 @@ const columns = (openModal) => [
 ];
 
 
-class Sellers extends React.Component {
+class ShoeModel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             data: null,
             show: false,
-            username: "",
+            code: "",
+            name: "",
         };
         this.openModal = this.openModal.bind(this);
     }
+
+    openModal(code, name) {
+        this.setState({show: true});
+        this.setState({code: code});
+        this.setState({name: name});
+    }
+
+
+    updateDataShoeModel(code) {
+        const new_Data = this.state.data.filter(ShoeModel => ShoeModel.code !== code);
+        this.setState({data: new_Data})
+    }
+
     async componentDidMount() {
-        const UrlProviders = "api/users/"
-        const res = await axios.get(ApiUrl + UrlProviders, {
+        const UrlShoeModel = "api/shoemodels/"
+        const res = await axios.get(ApiUrl + UrlShoeModel, {
             headers: {
                 Authorization: 'Token ' + TokenFixed_of_UserRoot
             }
@@ -68,32 +90,24 @@ class Sellers extends React.Component {
         await this.setState({data: res.data});
     };
 
-     name(name) {
-        const new_Data = this.state.data.filter(Seller =>Seller.username !== name);
-        this.setState({data: new_Data})
-    }
+    handleClose = () => this.setState({show: false});
 
-    openModal(name) {
-        this.setState({show: true});
-        this.setState({username: name});
-    }
-
-     async deleteProvider(name) {
-        const UrlProvider = "api/users/" + name+"/"
-        const res = await axios.delete(ApiUrl + UrlProvider, {
+    async deleteShoeModel(code) {
+        const UrlShoeModel = "api/shoemodels/" + code + "/"
+        const res = await axios.delete(ApiUrl + UrlShoeModel, {
             headers: {
                 Authorization: 'Token ' + TokenFixed_of_UserRoot
             }
         })
         console.log("Respuesta del DELETE:", res)
-        this.updateDataProvider(name)
+        this.updateDataShoeModel(code)
         this.handleClose()
     }
 
-
     render() {
-         const {data, show, username} = this.state
+        const {data, show, code, name} = this.state
         return (
+
             <div>
                 <Header/>
                 <div className='row'>
@@ -102,15 +116,16 @@ class Sellers extends React.Component {
                         <div className="bg-white">
                             <div className="d-flex m-3 pt-3 justify-content-between">
                                 <div>
-                                    <h5>Vendedores</h5>
+                                    <h5>Modelo de Zapatilla</h5>
                                 </div>
                                 <div className="d-flex gap-2">
                                     <div>
-                                        <a href="/crear_vendedor">
+                                        <Link to="/crear_modeloZapatilla">
                                             <button type="button" className="btn"
-                                                    style={{backgroundColor: '#663399', color: 'white'}}>+Nuevo Vendedor
+                                                    style={{backgroundColor: '#663399', color: 'white'}}>+Nuevo Modelo
+                                                Zapatilla
                                             </button>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +137,7 @@ class Sellers extends React.Component {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Buscar vendedor"
+                                        placeholder="Buscar modelo de zapatilla"
                                         aria-label="Recipient's username with two button addons"
                                     />
                                 </div>
@@ -130,8 +145,8 @@ class Sellers extends React.Component {
                             <hr
                                 style={{background: 'F8F9FA'}}
                             />
-                            <div>
-                                <table className="table mt-5">
+                            <div className="d-flex justify-content-center tetx-center">
+                                <table className="table mt-5" style={{width: '50%'}}>
                                     {(data !== null &&
                                         <DataTable
                                             columns={columns(this.openModal)}
@@ -145,24 +160,23 @@ class Sellers extends React.Component {
                 </div>
                 <Modal show={show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Eliminar el vendedor {username} </Modal.Title>
+                        <Modal.Title>Eliminar el modelo zapatilla {name}  </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>¿Estas seguro que quieres eliminar el vendedor?</Modal.Body>
+                    <Modal.Body>¿Estas seguro que quieres eliminar el modelo zapatilla con codigo {code}?</Modal.Body>
                     <Modal.Footer>
                         <Button variant="primary" onClick={this.handleClose}>
                             Cancelar
                         </Button>
                         <Button variant="danger" onClick={() => {
-                            this.deleteProvider(username)
+                            this.deleteShoeModel(code)
                         }}>
                             Continuar
                         </Button>
                     </Modal.Footer>
                 </Modal>
-
             </div>
         );
     }
 }
 
-export default Sellers;
+export default ShoeModel;
