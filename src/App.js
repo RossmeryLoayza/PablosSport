@@ -36,6 +36,11 @@ import Warehouse from "./components/Warehouse/Warehouse";
 import CreateWarehouse from "./components/Warehouse/CreateWarehouse";
 import EditWarehouse from "./components/Warehouse/EditWarehouse";
 
+import  ShoeModel from "./components/ShoeModel/ShoeModel";
+import CreateShoeModel from "./components/ShoeModel/CreateShoeModel";
+import EditShoeModel from "./components/ShoeModel/EditShoeModel";
+
+
 const App = () => {
   return (
     <React.Fragment>
@@ -131,6 +136,21 @@ const App = () => {
             path="/editar_vendedor"
             exact
             render={(props) => <EditSellers {...props} />}
+          />
+          <Route
+            path="/modeloZapatilla"
+            exact
+            render={(props) => <ShoeModel {...props} />}
+          />
+          <Route
+            path="/crear_modeloZapatilla"
+            exact
+            render={(props) => <CreateShoeModel {...props} />}
+          />
+          <Route
+            path="/modificar_modeloZapatilla"
+            exact
+            render={(props) => <EditShoeModel {...props} />}
           />
           <Route
             path="/zapatillas"
